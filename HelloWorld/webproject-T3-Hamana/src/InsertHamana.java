@@ -22,22 +22,24 @@ public class InsertHamana extends HttpServlet {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String userName = request.getParameter("userName");
-      String email = request.getParameter("email");
+      String firstName = request.getParameter("firstName");
+      String lastName = request.getParameter("lastName");
       String phone = request.getParameter("phone");
-      String address = request.getParameter("address");
+      String date = request.getParameter("date");
+      String time = request.getParameter("time");
       
       Connection connection = null;
-      String insertSql = " INSERT INTO MyTableHamana0915 (id, MYUSER, EMAIL, PHONE, ADDRESS) values (default, ?, ?, ?, ?)";
+      String insertSql = " INSERT INTO MyTableHamanaT3 (id, FIRSTNAME, LASTNAME, PHONE, DATE, TIME) values (default, ?, ?, ?, ?, ?)";
 
       try {
          DBConnectionHamana.getDBConnectionHamana();
          connection = DBConnectionHamana.connection;
          PreparedStatement preparedStmt = connection.prepareStatement(insertSql);
-         preparedStmt.setString(1, userName);
-         preparedStmt.setString(2, email);
+         preparedStmt.setString(1, firstName);
+         preparedStmt.setString(2, lastName);
          preparedStmt.setString(3, phone);
-         preparedStmt.setString(4, address);
+         preparedStmt.setString(4, date);
+         preparedStmt.setString(5, time);
          preparedStmt.execute();
          connection.close();
       } catch (Exception e) {
@@ -56,14 +58,15 @@ public class InsertHamana extends HttpServlet {
             "<h2 align=\"center\">" + title + "</h2>\n" + //
             "<ul>\n" + //
 
-            "  <li><b>User Name</b>: " + userName + "\n" + //
-            "  <li><b>Email</b>: " + email + "\n" + //
+            "  <li><b>First Name</b>: " + firstName + "\n" + //
+            "  <li><b>Last Name</b>: " + lastName + "\n" + //
             "  <li><b>Phone</b>: " + phone + "\n" + //
-            "  <li><b>Address</b>: " + address + "\n" + // 
+            "  <li><b>Date</b>: " + date + "\n" + //
+            "  <li><b>Time</b>: " + time + "\n" + //
 
             "</ul>\n");
 
-      out.println("<a href=/webproject-0915-Hamana/search_hamana.html>Search Data</a> <br>");
+      out.println("<a href=/webproject-T3-Hamana/search_hamana.html>Search Data</a> <br>");
       out.println("</body></html>");
    }
 

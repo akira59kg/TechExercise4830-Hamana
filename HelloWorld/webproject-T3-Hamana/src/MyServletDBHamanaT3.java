@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/MyServletDBHamana0915")
-public class MyServletDBHamana0915 extends HttpServlet {
+@WebServlet("/MyServletDBHamanaT3")
+public class MyServletDBHamanaT3 extends HttpServlet {
    private static final long serialVersionUID = 1L;
-   static String url = "jdbc:mysql://ec2-3-129-206-12.us-east-2.compute.amazonaws.com:3306/MyDBHamana0915";
+   static String url = "jdbc:mysql://ec2-3-129-206-12.us-east-2.compute.amazonaws.com:3306/MyDBHamanaT3";
    static String user = "akira-remote";
    static String password = "Yatta@1337";
    static Connection connection = null;
 
-   public MyServletDBHamana0915() {
+   public MyServletDBHamanaT3() {
       super();
    }
 
@@ -57,13 +57,17 @@ public class MyServletDBHamana0915 extends HttpServlet {
          ResultSet rs = preparedStatement.executeQuery();
          while (rs.next()) {
             String id = rs.getString("ID");
-            String username = rs.getString("MYUSER");
-            String email = rs.getString("EMAIL");
+            String firstName = rs.getString("FIRSTNAME");
+            String lastName = rs.getString("LASTNAME");
             String phone = rs.getString("PHONE");
+            String date = rs.getString("DATE");
+            String time = rs.getString("TIME");
             response.getWriter().append("USER ID: " + id + ", ");
-            response.getWriter().append("USER NAME: " + username + ", ");
-            response.getWriter().append("USER EMAIL: " + email + ", ");
-            response.getWriter().append("USER PHONE: " + phone + "<br>");
+            response.getWriter().append("FIRST NAME: " + firstName + ", ");
+            response.getWriter().append("LAST NAME: " + lastName + ", ");
+            response.getWriter().append("PHONE NUMBER: " + phone + ", ");
+            response.getWriter().append("DATE: " + date + ", ");
+            response.getWriter().append("TIME: " + time + "<br>");
          }
       } catch (SQLException e) {
          e.printStackTrace();

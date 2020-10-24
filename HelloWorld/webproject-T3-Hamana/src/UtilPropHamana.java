@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 public class UtilPropHamana{
    static final boolean _W = System.getProperty("os.name").toLowerCase().contains("windows");
    static String _PROP_FILENAME_WIN_LOCAL = "C:\\YOUR_PATH\\webproject\\WebContent\\config.properties";
-   static String _PROP_FILENAME_OSX_LOCAL = "/Users/akira59lift/eclipse-workspace/workspace4830-0915-Hamana/webproject-0915-Hamana/WebContent/config.properties";
+   static String _PROP_FILENAME_OSX_LOCAL = "/Users/akira59lift/git/TechExercise4830Hamana/HelloWorld/webproject-T3-Hamana/WebContent/config.properties";
    // * Remote server path
-   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/webproject-0915-Hamana/config.properties";
+   static String _PROP_FILENAME_REMOTE = "/Users/akira59lift/git/TechExercise4830Hamana/HelloWorld/webproject-T3-Hamana/WebContent/config.properties";
    static Properties prop = new Properties();
 
    public static void loadProperty() throws Exception {
